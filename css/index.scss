@@ -22,25 +22,25 @@ a:hover{
     top: 50%;
     transform:translateY(-50%);
     display: inline-block;
-    width: 30%;
+    width: 40%;
     padding: 0.15rem;
     background-color: rgba(0,0,0,0.3);
     color: #fefefe;
     border-radius: 0.15rem;
     .entrance_tit{
-        margin: 0.1rem 0;
+        margin: 0.2rem 0;
         .tit_china,.tit_engish{
-        margin-top: 0.1rem;
+        margin-top: 0.2rem;
         font-size: 0.22rem;
         }
     }
     .entrance_choose{
-        padding: 0.1rem 0;
+        padding: 0.2rem 0;
         border-top: 1px solid #d3d3d3;
         border-bottom: 1px solid #d3d3d3;
         text-align: left;
         .menu{
-            padding: 0.1rem 0.07rem;
+            padding: 0.2rem 0.07rem;
             background-color: rgba(0,0,0,0.5);
             border-radius: 6px;
         }
@@ -55,7 +55,7 @@ a:hover{
         }
     }
     .entrance_email{
-        margin-top: 0.1rem;
+        margin-top: 0.2rem;
         .email{
             text-align: right;
             padding-right: 0.2rem;
@@ -65,12 +65,12 @@ a:hover{
 }
 @media only screen and (max-width:1100px) and (min-width: 900px){
    .entrance{
-       width: 40%;
+       width: 50%;
    }
 }
 @media only screen and (max-width:900px) and (min-width: 600px){
    .entrance{
-       width: 50%;
+       width: 60%;
    }
 }
 @media only screen and (max-width:600px) and (min-width: 500px){
