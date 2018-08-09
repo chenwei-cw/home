@@ -12,7 +12,6 @@ export default class Article extends Component {
         return hljs.highlightAuto(code).value;
       }
     });
-
     this.handleClick = this.handleClick.bind(this);
   }
 

@@ -4,6 +4,7 @@ import { createStore } from 'redux'
 import { Provider } from 'react-redux'
 import Route from './route/route'
 import entrepot from './reducers/reducers'
+import '../common/comment.less'
 
 const store = createStore(entrepot);
 

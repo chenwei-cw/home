@@ -3,6 +3,7 @@ import { connect } from 'react-redux'
 import {getIssuesData} from '../../reducers/reducers'
 import {issuesData} from '../../ajax'
 import Menu from '../../components/menu/Menu'
+import Logo from '../../components/logo/Logo'
 
 class Main extends Component{
     constructor(){
@@ -25,6 +26,7 @@ class Main extends Component{
     render(){
         return(
             <Fragment>
+                <Logo />
                 <Menu />
             </Fragment>
         )
