@@ -6,7 +6,8 @@
   "author": "chenwei-cw <435482519@qq.com>",
   "license": "MIT",
   "scripts": {
-    "start": "webpack-dev-server --profile  --config ./build/webpack.dev.js"
+    "start": "webpack-dev-server --profile  --config ./build/webpack.dev.js",
+    "build": "webpack --profile --config ./build/webpack.pro.js"
   },
   "dependencies": {
     "autoprefixer": "^9.1.0",

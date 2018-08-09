@@ -6,7 +6,7 @@ class Menu extends Component {
     return (
       <div id="home">
         <div className="avatar">
-          <a href="http://localhost:8081"></a>
+          <a href="http://chenwei-cw.github.io"></a>
         </div>
         <h1>cobish</h1>
         <div className="link">

@@ -38,7 +38,7 @@ const moduleConfig = {
         },
         {
             test: /\.(png|gif|jpg|svg|jpeg)$/i,
-            use: ['file-loader?name=./images/[name].[ext]']
+            use: ['file-loader?name=./dist/images/[name].[ext]']
         },
       ]
 }
