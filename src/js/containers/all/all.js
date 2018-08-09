@@ -2,7 +2,7 @@ import React,{Fragment,Component} from 'react'
 import { connect } from 'react-redux'
 import {getIssuesData} from '../../reducers/reducers'
 import CellView from '../../components/cellview/CellView'
-
+import Logo from '../../components/logo/Logo'
 class All extends Component{
     constructor(){
         super()
@@ -20,9 +20,12 @@ class All extends Component{
         console.log(this.props.issuesData);
         return(
             <Fragment>
-                <CellView 
-                    title = '全部'
-                    items = {this.props.issuesData? this.props.issuesData : []} /> 
+                <Logo />
+                <div className='list'>
+                    <CellView 
+                        title = '全部'
+                        items = {this.props.issuesData? this.props.issuesData : []} /> 
+                </div>
             </Fragment>
         )
     }
