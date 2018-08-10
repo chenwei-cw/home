@@ -1,6 +1,7 @@
 import React,{Fragment,Component} from 'react'
 import { connect } from 'react-redux'
 import {getIssuesData} from '../../reducers/reducers'
+import {issuesData} from '../../ajax'
 import Article from '../../components/article.js/article.js'
 import Logo from '../../components/logo/Logo'
 import './article.less'
@@ -18,21 +19,37 @@ class ArticleCon extends Component{
         }
     }
     componentDidMount(){
-        let number = this.props.location.query.number,
+        this.init();
+    }
+    init(){
+        //没本地数据就请求服务器
+        this.props.issuesData? this.view() : this.serverData();
+    }
+
+    serverData(){
+        //获取issues的数据
+        issuesData().then((result)=>{
+            this.props.getIssuesData(result.data);
+            this.view();
+        })
+    }
+    view(){
+        let number = parseInt(this.props.location.search.split('?')[1]),
             length = this.props.issuesData.length,
             articleData = this.props.issuesData[length - number];
         this.variate = {
             number,
             articleData,
             issuesData:this.props.issuesData
-        }
+        };
         this.setState({
+            number,
             title:articleData.title,
             created_at:articleData.created_at,
             body:articleData.body
-        })
+        });
     }
-    
+
     render(){
         return(
             <Fragment>

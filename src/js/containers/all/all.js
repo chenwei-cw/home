@@ -1,6 +1,7 @@
 import React,{Fragment,Component} from 'react'
 import { connect } from 'react-redux'
 import {getIssuesData} from '../../reducers/reducers'
+import {issuesData} from '../../ajax'
 import CellView from '../../components/cellview/CellView'
 import Logo from '../../components/logo/Logo'
 class All extends Component{
@@ -14,10 +15,15 @@ class All extends Component{
         }
     }
     componentDidMount(){
-        
+        this.props.issuesData? null : this.serverData();
+    }
+    serverData(){
+        //获取issues的数据
+        issuesData().then((result)=>{
+            this.props.getIssuesData(result.data);
+        });
     }
     render(){
-        console.log(this.props.issuesData);
         return(
             <Fragment>
                 <Logo />

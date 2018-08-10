@@ -1,7 +1,6 @@
 import React,{Fragment,Component} from 'react'
 import { connect } from 'react-redux'
 import {getIssuesData} from '../../reducers/reducers'
-import {issuesData} from '../../ajax'
 import Menu from '../../components/menu/Menu'
 import Logo from '../../components/logo/Logo'
 
@@ -16,11 +15,6 @@ class Main extends Component{
         }
     }
     componentDidMount(){
-        //获取issues的数据
-        issuesData().then((result)=>{
-            this.props.getIssuesData(result.data);
-            console.log('issuesData',this.props.issuesData);
-        })
         
     }
     render(){

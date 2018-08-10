@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import marked from 'marked';
 import hljs from 'highlight.js';
+import {config} from '../../ajax/config'
 
 export default class Article extends Component {
   componentWillMount() {
@@ -16,7 +17,7 @@ export default class Article extends Component {
   }
 
   handleClick() {
-    let url = `https://github.com/cobish/cobish.github.io/issues/${this.props.number}`;
+    let url = `https://github.com/${config.owner}/${config.repo}/issues/${this.props.number}`;
     window.location.href = url;
   }
 
