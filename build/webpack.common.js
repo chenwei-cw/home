@@ -1,14 +1,15 @@
 const ExtractTextPlugin = require('extract-text-webpack-plugin'); //将css单独打包一个文件
 const path = require('path');
+const webpack = require('webpack');
 const root = path.resolve(__dirname, '../');
 
 const entry = {
     index:root+'/src/js/index.js',
-    vendor: ['react','react-router-dom','react-redux','redux']
 };
 const output = {
     path: root+'/dist',
-    filename: '[name].js'
+    filename:'[name].js',
+    chunkFilename: '[name].js',
 };
 const moduleConfig = {
     rules: [
@@ -19,6 +20,10 @@ const moduleConfig = {
                 query: {
                     presets: ['es2015','react','stage-1'],
                     plugins: [
+                        ['transform-runtime', {
+                            helpers: false,
+                            polyfill: false,
+                            regenerator: true, }],
                         ["import", { libraryName: "antd-mobile", style: "css" }] // `style: true` 会加载 less 文件
                     ]
                 },
@@ -47,10 +52,13 @@ module.exports = {
     entry,
     output,
     module:moduleConfig,
+    optimization:{
+        splitChunks:{chunks: 'all',name:'vendor'}
+    },
     plugins: [
         new ExtractTextPlugin({
             filename:'main.css',
             allChunks:true
-        })
+        }),
     ]
 }
