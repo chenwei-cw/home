@@ -1,10 +1,18 @@
 const ExtractTextPlugin = require('extract-text-webpack-plugin'); //将css单独打包一个文件
+var HtmlWebpackPlugin = require('html-webpack-plugin');
 const path = require('path');
 const webpack = require('webpack');
 const root = path.resolve(__dirname, '../');
 
 const entry = {
     index:root+'/src/js/index.js',
+    vendor: [
+        'react',
+        'react-dom',
+        'react-router-dom',
+        'react-redux',
+        'redux',
+      ]
 };
 const output = {
     path: root+'/dist',
@@ -53,12 +61,17 @@ module.exports = {
     output,
     module:moduleConfig,
     optimization:{
-        splitChunks:{chunks: 'all',name:'vendor'}
+        splitChunks:{name:'vendor'}
     },
     plugins: [
         new ExtractTextPlugin({
             filename:'main.css',
             allChunks:true
+        }),
+        new HtmlWebpackPlugin({
+            title: 'chenwei',
+            filename: '../index.html',
+            template: './src/html/index.html'
         }),
     ]
 }

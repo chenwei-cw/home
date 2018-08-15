@@ -3,8 +3,8 @@ import { BrowserRouter as Router, Route } from 'react-router-dom'
 import Main from '../containers/main/main'
 import asyncComponent from './asyncComponent'
 
-const All = asyncComponent(() => import(/* webpackChunkName: "all" */"../containers/all/all"));
-const Article = asyncComponent(() => import(/* webpackChunkName: "article" */"../containers/article/article"));
+const All = asyncComponent(() => import(/* webpackChunkName: "all" */"../../js/containers/all/all"));
+const Article = asyncComponent(() => import(/* webpackChunkName: "article" */"../../js/containers/article/article"));
 
 function routes(){
     return (
