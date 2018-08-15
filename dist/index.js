@@ -63,7 +63,7 @@
 /******/
 /******/ 	// script path function
 /******/ 	function jsonpScriptSrc(chunkId) {
-/******/ 		return __webpack_require__.p + "" + ({"all":"all"}[chunkId]||chunkId) + ".js"
+/******/ 		return __webpack_require__.p + "" + ({"all":"all","article":"article"}[chunkId]||chunkId) + ".js"
 /******/ 	}
 /******/
 /******/ 	// The require function
@@ -333,18 +333,6 @@ eval("\nvar content = __webpack_require__(/*! !../../../../node_modules/css-load
 
 /***/ }),
 
-/***/ "./src/js/containers/index.js":
-/*!************************************!*\
-  !*** ./src/js/containers/index.js ***!
-  \************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-eval("\n\nObject.defineProperty(exports, \"__esModule\", {\n  value: true\n});\n\nvar _main = __webpack_require__(/*! ./main/main */ \"./src/js/containers/main/main.js\");\n\nObject.defineProperty(exports, 'Main', {\n  enumerable: true,\n  get: function get() {\n    return _interopRequireDefault(_main).default;\n  }\n});\n\nfunction _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }\n\n//# sourceURL=webpack:///./src/js/containers/index.js?");
-
-/***/ }),
-
 /***/ "./src/js/containers/main/main.js":
 /*!****************************************!*\
   !*** ./src/js/containers/main/main.js ***!
@@ -381,6 +369,18 @@ eval("\n\nObject.defineProperty(exports, \"__esModule\", {\n    value: true\n});
 
 /***/ }),
 
+/***/ "./src/js/route/asyncComponent.js":
+/*!****************************************!*\
+  !*** ./src/js/route/asyncComponent.js ***!
+  \****************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+eval("\n\nObject.defineProperty(exports, \"__esModule\", {\n  value: true\n});\n\nvar _regenerator = __webpack_require__(/*! babel-runtime/regenerator */ \"./node_modules/babel-runtime/regenerator/index.js\");\n\nvar _regenerator2 = _interopRequireDefault(_regenerator);\n\nvar _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if (\"value\" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();\n\nexports.default = asyncComponent;\n\nvar _react = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\n\nvar _react2 = _interopRequireDefault(_react);\n\nfunction _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }\n\nfunction _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, arguments); return new Promise(function (resolve, reject) { function step(key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { return Promise.resolve(value).then(function (value) { step(\"next\", value); }, function (err) { step(\"throw\", err); }); } } return step(\"next\"); }); }; }\n\nfunction _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError(\"Cannot call a class as a function\"); } }\n\nfunction _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError(\"this hasn't been initialised - super() hasn't been called\"); } return call && (typeof call === \"object\" || typeof call === \"function\") ? call : self; }\n\nfunction _inherits(subClass, superClass) { if (typeof superClass !== \"function\" && superClass !== null) { throw new TypeError(\"Super expression must either be null or a function, not \" + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }\n\nfunction asyncComponent(importComponent) {\n  var AsyncComponent = function (_Component) {\n    _inherits(AsyncComponent, _Component);\n\n    function AsyncComponent(props) {\n      _classCallCheck(this, AsyncComponent);\n\n      var _this = _possibleConstructorReturn(this, (AsyncComponent.__proto__ || Object.getPrototypeOf(AsyncComponent)).call(this, props));\n\n      _this.state = {\n        component: null\n      };\n      return _this;\n    }\n\n    _createClass(AsyncComponent, [{\n      key: \"componentDidMount\",\n      value: function () {\n        var _ref = _asyncToGenerator( /*#__PURE__*/_regenerator2.default.mark(function _callee() {\n          var _ref2, component;\n\n          return _regenerator2.default.wrap(function _callee$(_context) {\n            while (1) {\n              switch (_context.prev = _context.next) {\n                case 0:\n                  _context.next = 2;\n                  return importComponent();\n\n                case 2:\n                  _ref2 = _context.sent;\n                  component = _ref2.default;\n\n\n                  this.setState({\n                    component: component\n                  });\n\n                case 5:\n                case \"end\":\n                  return _context.stop();\n              }\n            }\n          }, _callee, this);\n        }));\n\n        function componentDidMount() {\n          return _ref.apply(this, arguments);\n        }\n\n        return componentDidMount;\n      }()\n    }, {\n      key: \"render\",\n      value: function render() {\n        var C = this.state.component;\n\n        return C ? _react2.default.createElement(C, this.props) : null;\n      }\n    }]);\n\n    return AsyncComponent;\n  }(_react.Component);\n\n  return AsyncComponent;\n}\n\n//# sourceURL=webpack:///./src/js/route/asyncComponent.js?");
+
+/***/ }),
+
 /***/ "./src/js/route/route.js":
 /*!*******************************!*\
   !*** ./src/js/route/route.js ***!
@@ -389,7 +389,7 @@ eval("\n\nObject.defineProperty(exports, \"__esModule\", {\n    value: true\n});
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-eval("\n\nObject.defineProperty(exports, \"__esModule\", {\n    value: true\n});\n\nvar _react = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\n\nvar _react2 = _interopRequireDefault(_react);\n\nvar _reactRouterDom = __webpack_require__(/*! react-router-dom */ \"./node_modules/react-router-dom/es/index.js\");\n\nvar _index = __webpack_require__(/*! ../containers/index */ \"./src/js/containers/index.js\");\n\nfunction _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }\n\n// import asyncComponent from './asyncComponent'\n\n// const All = asyncComponent('../containers/all/all.js');\n// const Article = asyncComponent('../containers/article/article.js');\n\nvar All = function All(location, cb) {\n    Promise.all(/*! require.ensure | all */[__webpack_require__.e(\"vendor\"), __webpack_require__.e(\"all\")]).then((function (require) {\n        cb(null, __webpack_require__(/*! ../containers/all/all.js */ \"./src/js/containers/all/all.js\").default);\n    }).bind(null, __webpack_require__)).catch(__webpack_require__.oe);\n};\n\nfunction routes() {\n    return _react2.default.createElement(\n        _reactRouterDom.HashRouter,\n        null,\n        _react2.default.createElement(\n            _react.Fragment,\n            null,\n            _react2.default.createElement(_reactRouterDom.Route, { exact: true, path: '/', component: _index.Main }),\n            _react2.default.createElement(_reactRouterDom.Route, { path: '/all', component: All }),\n            _react2.default.createElement(_reactRouterDom.Route, { path: '/article', component: Article }),\n            _react2.default.createElement(_reactRouterDom.Route, { path: '/archive', component: _index.Main }),\n            _react2.default.createElement(_reactRouterDom.Route, { path: '/tags', component: _index.Main })\n        )\n    );\n}\n\nexports.default = routes;\n\n//# sourceURL=webpack:///./src/js/route/route.js?");
+eval("\n\nObject.defineProperty(exports, \"__esModule\", {\n    value: true\n});\n\nvar _react = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\n\nvar _react2 = _interopRequireDefault(_react);\n\nvar _reactRouterDom = __webpack_require__(/*! react-router-dom */ \"./node_modules/react-router-dom/es/index.js\");\n\nvar _main = __webpack_require__(/*! ../containers/main/main */ \"./src/js/containers/main/main.js\");\n\nvar _main2 = _interopRequireDefault(_main);\n\nvar _asyncComponent = __webpack_require__(/*! ./asyncComponent */ \"./src/js/route/asyncComponent.js\");\n\nvar _asyncComponent2 = _interopRequireDefault(_asyncComponent);\n\nfunction _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }\n\nvar All = (0, _asyncComponent2.default)(function () {\n    return Promise.all(/*! import() | all */[__webpack_require__.e(\"vendor\"), __webpack_require__.e(\"all\")]).then(__webpack_require__.t.bind(null, /*! ../containers/all/all */ \"./src/js/containers/all/all.js\", 7));\n});\nvar Article = (0, _asyncComponent2.default)(function () {\n    return Promise.all(/*! import() | article */[__webpack_require__.e(\"vendor\"), __webpack_require__.e(\"article\")]).then(__webpack_require__.t.bind(null, /*! ../containers/article/article */ \"./src/js/containers/article/article.js\", 7));\n});\n\nfunction routes() {\n    return _react2.default.createElement(\n        _reactRouterDom.BrowserRouter,\n        null,\n        _react2.default.createElement(\n            _react.Fragment,\n            null,\n            _react2.default.createElement(_reactRouterDom.Route, { exact: true, path: '/', component: _main2.default }),\n            _react2.default.createElement(_reactRouterDom.Route, { path: '/all', component: All }),\n            _react2.default.createElement(_reactRouterDom.Route, { path: '/article', component: Article }),\n            _react2.default.createElement(_reactRouterDom.Route, { path: '/archive', component: _main2.default }),\n            _react2.default.createElement(_reactRouterDom.Route, { path: '/tags', component: _main2.default })\n        )\n    );\n}\n\nexports.default = routes;\n\n//# sourceURL=webpack:///./src/js/route/route.js?");
 
 /***/ })
 

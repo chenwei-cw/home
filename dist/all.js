@@ -11,42 +11,6 @@ eval("exports = module.exports = __webpack_require__(/*! ../../../../node_module
 
 /***/ }),
 
-/***/ "./src/js/ajax/base.js":
-/*!*****************************!*\
-  !*** ./src/js/ajax/base.js ***!
-  \*****************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-eval("\n\nObject.defineProperty(exports, \"__esModule\", {\n    value: true\n});\n\nvar _axios = __webpack_require__(/*! axios */ \"./node_modules/axios/index.js\");\n\nvar _axios2 = _interopRequireDefault(_axios);\n\nvar _config = __webpack_require__(/*! ./config */ \"./src/js/ajax/config.js\");\n\nvar _config2 = _interopRequireDefault(_config);\n\nfunction _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }\n\nvar cancel = void 0,\n    promiseObj = {};\nvar instance = _axios2.default.create();\n\n//请求拦截器\ninstance.interceptors.request.use(function (config) {\n    // 在发送请求之前做些什么\n    return config;\n}, function (error) {\n    // 对请求错误做些什么\n    return Promise.reject(error);\n});\n\n//响应拦截器即异常处理\ninstance.interceptors.response.use(function (response) {\n    // 对响应数据做点什么\n    return response;\n}, function (error) {\n    // 对响应错误做点什么\n    return Promise.reject(error);\n});\n//`baseURL` 将自动加在 `url` 前面，除非 `url` 是一个绝对 URL。\n// instance.defaults.baseURL = config.localURL;\n//设置超时时间,如果请求话费了超过 `timeout` 的时间，请求将被中断\ninstance.defaults.timeout = 10000;\n\nexports.default = {\n    get: function get(url, params) {\n        return new Promise(function (resolve, reject) {\n            instance({\n                method: 'get',\n                url: url,\n                params: params\n\n            }).then(function (res) {\n                resolve(res);\n            }, function (err) {\n                reject(err);\n            });\n        });\n    },\n    post: function post(url, params) {\n        return new Promise(function (resolve, reject) {\n            instance({\n                method: 'post',\n                url: url,\n                params: params\n\n            }).then(function (res) {\n                resolve(res);\n            }, function (err) {\n                reject(err);\n            });\n        });\n    }\n};\n\n//# sourceURL=webpack:///./src/js/ajax/base.js?");
-
-/***/ }),
-
-/***/ "./src/js/ajax/config.js":
-/*!*******************************!*\
-  !*** ./src/js/ajax/config.js ***!
-  \*******************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-eval("/**\n * 项目的配置文件，包括\n * 1. api 地址\n * 2. 版本\n * ...\n */\n\n\n// 开发环境的配置\n\nObject.defineProperty(exports, \"__esModule\", {\n  value: true\n});\nvar config = exports.config = {\n  owner: 'chenwei-cw',\n  repo: 'notes'\n};\n\n//# sourceURL=webpack:///./src/js/ajax/config.js?");
-
-/***/ }),
-
-/***/ "./src/js/ajax/index.js":
-/*!******************************!*\
-  !*** ./src/js/ajax/index.js ***!
-  \******************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-eval("\n\nObject.defineProperty(exports, \"__esModule\", {\n    value: true\n});\nexports.issuesData = undefined;\n\nvar _base = __webpack_require__(/*! ./base */ \"./src/js/ajax/base.js\");\n\nvar _base2 = _interopRequireDefault(_base);\n\nvar _config = __webpack_require__(/*! ./config */ \"./src/js/ajax/config.js\");\n\nfunction _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }\n\n//issues 的链接\nvar issuesUrl = 'https://api.github.com/repos/' + _config.config.owner + '/' + _config.config.repo + '/issues';\n//导出\nvar issuesData = exports.issuesData = function issuesData(param) {\n    return _base2.default.get(issuesUrl, param);\n};\n\n//# sourceURL=webpack:///./src/js/ajax/index.js?");
-
-/***/ }),
-
 /***/ "./src/js/components/cellview/Cell.js":
 /*!********************************************!*\
   !*** ./src/js/components/cellview/Cell.js ***!

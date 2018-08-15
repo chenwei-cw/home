@@ -1,29 +1,25 @@
-import React,{Fragment} from 'react'
-import { HashRouter, Route} from "react-router-dom";
-import {Main} from '../containers/index'
-// import asyncComponent from './asyncComponent'
+import React,{Fragment,Component} from 'react'
+import { BrowserRouter as Router, Route } from 'react-router-dom'
+import Main from '../containers/main/main'
+import asyncComponent from './asyncComponent'
 
-// const All = asyncComponent('../containers/all/all.js');
-// const Article = asyncComponent('../containers/article/article.js');
-
-var All = (location, cb) => {
-    require.ensure([], require => {
-      cb(null, require('../containers/all/all.js').default);
-    }, 'all');
-  };
+const All = asyncComponent(() => import(/* webpackChunkName: "all" */"../containers/all/all"));
+const Article = asyncComponent(() => import(/* webpackChunkName: "article" */"../containers/article/article"));
 
 function routes(){
     return (
-        <HashRouter>
+        <Router>
             <Fragment>
                 <Route exact path="/" component={Main} />
-                <Route path="/all" component={All} />
+                <Route path="/all" component={All} /> 
                 <Route path="/article" component={Article} />
                 <Route path="/archive" component={Main} />
                 <Route path="/tags" component={Main} />
             </Fragment>
-        </HashRouter>
+        </Router>
     )
 }
+
+  
 
 export default routes

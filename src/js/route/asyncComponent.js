@@ -1,6 +1,6 @@
-import React, {Component} from "react";
+import React, { Component } from "react";
 
-export default function asyncComponent(component) {
+export default function asyncComponent(importComponent) {
   class AsyncComponent extends Component {
     constructor(props) {
       super(props);
@@ -11,17 +11,17 @@ export default function asyncComponent(component) {
     }
 
     async componentDidMount() {
-      const {component} = await import("../containers/index");
+      const { default: component } = await importComponent();
 
-      this.setState({component: component});
+      this.setState({
+        component: component
+      });
     }
 
     render() {
-      const Component = this.state.component;
+      const C = this.state.component;
 
-      return Component
-        ? <Component {...this.props}/>
-        : null;
+      return C ? <C {...this.props} /> : null;
     }
   }
 
