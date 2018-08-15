@@ -15,9 +15,9 @@ const entry = {
       ]
 };
 const output = {
-    path: root+'/dist',
-    filename:'[name].js',
-    chunkFilename: '[name].js',
+    path: root,
+    filename:'dist/[name].js',
+    chunkFilename: 'dist/[name].js',
 };
 const moduleConfig = {
     rules: [
@@ -65,12 +65,12 @@ module.exports = {
     },
     plugins: [
         new ExtractTextPlugin({
-            filename:'main.css',
+            filename:'dist/main.css',
             allChunks:true
         }),
         new HtmlWebpackPlugin({
             title: 'chenwei',
-            filename: '../index.html',
+            filename: './index.html',
             template: './src/html/index.html'
         }),
     ]
