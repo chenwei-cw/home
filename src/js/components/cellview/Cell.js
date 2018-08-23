@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from "react-router-dom";
-
+import PropTypes from 'prop-types'; 
 export default class Cell extends Component {
   render() {
     return (
@@ -13,3 +13,7 @@ export default class Cell extends Component {
     );
   }
 };
+
+Cell.PropTypes = {
+  number:PropTypes.number
+}
