@@ -9,6 +9,6 @@
 // 开发环境的配置
 export const config = {
     owner:`chenwei-cw`,
-    repo:`chenwei-cw.github.io`
+    repo:`notes`
 } 
 

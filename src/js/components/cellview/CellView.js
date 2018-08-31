@@ -10,7 +10,7 @@ export default class CellView extends Component {
         <ul>
           {
             this.props.items.map((item, index) => 
-              <Cell {...item} key={index} />
+              <Cell {...item} index={index} key={index} />
             )
           }
         </ul>

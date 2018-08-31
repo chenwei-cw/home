@@ -30,20 +30,20 @@ class ArticleCon extends Component{
         //获取issues的数据
         issuesData().then((result)=>{
             this.props.getIssuesData(result.data);
+            console.log(result.data)
             this.view();
         })
     }
     view(){
         let number = parseInt(this.props.location.search.split('?')[1]),
-            length = this.props.issuesData.length,
-            articleData = this.props.issuesData[length - number];
+            articleData = this.props.issuesData[number];
         this.variate = {
             number,
             articleData,
             issuesData:this.props.issuesData
         };
         this.setState({
-            number,
+            number:articleData.number,
             title:articleData.title,
             created_at:articleData.created_at,
             body:articleData.body
