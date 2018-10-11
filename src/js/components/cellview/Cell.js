@@ -14,6 +14,6 @@ export default class Cell extends Component {
   }
 };
 
-Cell.PropTypes = {
+Cell.propTypes = {
   number:PropTypes.number
 }
