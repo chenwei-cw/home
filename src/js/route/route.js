@@ -7,6 +7,7 @@ const All = asyncComponent(() => import(/* webpackChunkName: "all" */"../../js/c
 const Article = asyncComponent(() => import(/* webpackChunkName: "article" */"../../js/containers/article/article"));
 const switchMain = asyncComponent(() => import(/* webpackChunkName: "all" */"../../js/switch/main.js"));
 const HotSearch = asyncComponent(() => import(/* webpackChunkName: "article" */"../../js/containers/hotSearch/hotSearch"));
+const IconList = asyncComponent(() => import(/* webpackChunkName: "article" */"../../js/containers/iconList/iconList"));
 
 function routes(){
     return (
@@ -18,6 +19,7 @@ function routes(){
                 <Route path="/archive" component={Main} />
                 <Route path="/tags" component={Main} /> */}
                 <Route path="/hotSearch" component={HotSearch} />
+                <Route path="/iconList" component={IconList} />
             </Fragment>
         </Router>
     )

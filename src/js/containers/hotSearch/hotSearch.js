@@ -75,6 +75,7 @@ class hotSearch extends Component {
                             {bdHot.map(hotData => {
                                 return <List.Item key={hotData.keyword} arrow="horizontal" onClick={() => { location.href = hotData.url }}>
                                     {/* <span className='num'>{hotData.num || "🔝"}</span> */}
+                                    <i className="iconfont icon-zuojiao"></i>
                                     <span className='keyword'>{hotData.keyword}</span>
                                     {/* <span className='hotNum'>{hotData.hotNum}</span> */}
                                 </List.Item>
