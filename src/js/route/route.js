@@ -6,6 +6,7 @@ import asyncComponent from './asyncComponent'
 const All = asyncComponent(() => import(/* webpackChunkName: "all" */"../../js/containers/all/all"));
 const Article = asyncComponent(() => import(/* webpackChunkName: "article" */"../../js/containers/article/article"));
 const switchMain = asyncComponent(() => import(/* webpackChunkName: "all" */"../../js/switch/main.js"));
+const HotSearch = asyncComponent(() => import(/* webpackChunkName: "article" */"../../js/containers/hotSearch/hotSearch"));
 
 function routes(){
     return (
@@ -16,6 +17,7 @@ function routes(){
                 <Route path="/article" component={Article} />
                 <Route path="/archive" component={Main} />
                 <Route path="/tags" component={Main} /> */}
+                <Route path="/hotSearch" component={HotSearch} />
             </Fragment>
         </Router>
     )

@@ -6,10 +6,12 @@
   "author": "chenwei-cw <435482519@qq.com>",
   "license": "MIT",
   "scripts": {
+    "start": "npm run dev",
     "dev": "webpack-dev-server --profile  --config ./build/webpack.dev.js",
     "pro": "webpack --profile --config ./build/webpack.pro.js"
   },
   "dependencies": {
+    "antd-mobile": "^2.3.4",
     "autoprefixer": "^9.1.0",
     "autoprefixer-loader": "^3.2.0",
     "axios": "^0.18.0",
