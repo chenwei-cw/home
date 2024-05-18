@@ -15,9 +15,9 @@ const entry = {
       ]
 };
 const output = {
-    path: root,
-    filename:'dist/[name].js',
-    chunkFilename: 'dist/[name].js',
+    path: root+'/dist',
+    filename:'[name].js',
+    chunkFilename: '[name].js',
 };
 const moduleConfig = {
     rules: [
@@ -55,7 +55,7 @@ const moduleConfig = {
         },
         {
             test: /\.(png|gif|jpg|svg|jpeg)$/i,
-            use: ['file-loader?name=./dist/images/[name].[ext]']
+            use: ['file-loader?name=/images/[name].[ext]']
         },
       ]
 }
@@ -69,13 +69,13 @@ module.exports = {
     },
     plugins: [
         new ExtractTextPlugin({
-            filename:'dist/main.css',
+            filename:'main.css',
             allChunks:true
         }),
         new HtmlWebpackPlugin({
             title: 'chenwei',
             filename: './index.html',
-            template: './src/html/index.html'
+            template: root+'/src/html/template.html'
         }),
     ]
 }

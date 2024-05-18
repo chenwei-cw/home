@@ -8,7 +8,7 @@
   "scripts": {
     "start": "npm run dev",
     "dev": "webpack-dev-server --profile  --config ./build/webpack.dev.js",
-    "pro": "webpack --profile --config ./build/webpack.pro.js"
+    "build": "webpack --profile --config ./build/webpack.pro.js"
   },
   "dependencies": {
     "antd-mobile": "^2.3.4",
