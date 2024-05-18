@@ -15,9 +15,9 @@ const entry = {
       ]
 };
 const output = {
-    path: root+'/dist',
-    filename:'[name].js',
-    chunkFilename: '[name].js',
+    path: root,
+    filename:'dist/[name].js',
+    chunkFilename: 'dist/[name].js',
 };
 const moduleConfig = {
     rules: [
@@ -44,18 +44,10 @@ const moduleConfig = {
         {
             test: /\.less$/,
             loader: 'style-loader!css-loader!less-loader'
-            // use: ExtractTextPlugin.extract({
-            //     fallback: 'style-loader',
-            //     use: [
-            //         'less-loader',
-            //         'css-loader',
-            //         'autoprefixer-loader'
-            //     ]
-            // })
         },
         {
             test: /\.(png|gif|jpg|svg|jpeg)$/i,
-            use: ['file-loader?name=/images/[name].[ext]']
+            use: ['file-loader?name=./dist/images/[name].[ext]']
         },
       ]
 }
@@ -69,13 +61,13 @@ module.exports = {
     },
     plugins: [
         new ExtractTextPlugin({
-            filename:'main.css',
+            filename:'dist/main.css',
             allChunks:true
         }),
         new HtmlWebpackPlugin({
             title: 'chenwei',
             filename: './index.html',
-            template: root+'/src/html/template.html'
+            template: './src/index.html'
         }),
     ]
 }
