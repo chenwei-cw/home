@@ -68,7 +68,7 @@ module.exports = {
             title: 'chenwei',
             filename: './index.html',
             template: './src/index.html',
-            chunks:'all'
+            chunks:['index','vendor']
         }),
     ]
 }
